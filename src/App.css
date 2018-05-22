@@ -1,29 +1,123 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 60px;
-  display: inline-block;
-}
-
-.App-header {
-  background-color: #222;
-  height: 80px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  height: 45px;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+body::after {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.4);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 1s ease, z-index 1s ease;
+  z-index: -1;
+}
+
+div.body-container {
+  position: relative;
+  top: 60px;
+}
+
+.last{
+    bottom: 12px;
+    position: absolute;
+}
+
+body.modal-open::after {
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+  width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+  margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+      display: none;
+  }
+}
+
+.glyphicon {
+  margin-right: 5px;
+}
+
+.thumbnail {
+  margin-bottom: 20px;
+  padding: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.item.list-group-item {
+  float: none;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+  .item.list-group-item:nth-of-type(odd):hover, .item.list-group-item:hover {
+      background: #428bca;
+  }
+
+  .item.list-group-item .list-group-image {
+      margin-right: 10px;
+  }
+
+  .item.list-group-item .thumbnail {
+      margin-bottom: 0px;
+  }
+
+  .item.list-group-item .caption {
+      padding: 9px 9px 0px 9px;
+  }
+
+  .item.list-group-item:nth-of-type(odd) {
+      background: #eeeeee;
+  }
+
+  .item.list-group-item:before, .item.list-group-item:after {
+      display: table;
+      content: " ";
+  }
+
+  .item.list-group-item img {
+      float: left;
+  }
+
+  .item.list-group-item:after {
+      clear: both;
+  }
+
+.list-group-item-text {
+  margin: 0 0 11px;
 }
