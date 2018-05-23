@@ -29,7 +29,13 @@ class MainHeader extends Component {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/produtos">Produtos</Link>
+                            <Link className="nav-link" to="/produto">Produtos</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/pedido">Pedidos</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/cliente">Clientes</Link>
                         </li>
                     </ul>
                 </div>

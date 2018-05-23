@@ -9,10 +9,9 @@ import "./app.css";
 
 class App extends Component {
   render() {
-    var x = 1000;
     return (
       <div>
-        <MainHeader valor={x}/>
+        <MainHeader/>
         <MainPage />
       </div>
     );

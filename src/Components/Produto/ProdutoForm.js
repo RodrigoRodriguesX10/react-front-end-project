@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Produto from "../../Models/Produto";
 
-export default class ModelForm extends Component {
+export default class ProdutoForm extends Component {
     constructor(){
         super();
         this.state = {
-            model: {}
+            model: new Produto()
         };
         this.changeModel = this.changeModel.bind(this);
         this.submitForm = this.submitForm.bind(this);
@@ -13,7 +13,7 @@ export default class ModelForm extends Component {
 
     componentWillMount(){
         if(this.props.idModel){
-            Produto.get().then(function(produto){
+            this.state.model.get().then(function(produto){
                 this.setState({ model: produto });
             });
         }
@@ -37,6 +37,7 @@ export default class ModelForm extends Component {
         return (
             <div className="row">
                 <div className="col-md-4">
+                    <h3>{this.props.id ? "Editar" : "Cadastrar"} Produto</h3>
                     <form >
                         <div className="form-group">
                             <label htmlFor="Nome" className="control-label">Nome: </label>

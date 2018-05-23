@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import ProdutoList from "./Components/Produto/ProdutoList";
-import ModelForm from "./Components/Produto/ModelForm";
+import PedidoList from "./Components/Pedido/PedidoList";
+import ClienteList from "./Components/Cliente/ClienteList";
+import ProdutoForm from "./Components/Produto/ProdutoForm";
+import PedidoForm from "./Components/Pedido/PedidoForm";
+import ClienteForm from "./Components/Cliente/ClienteForm";
 
 export default class MainPage extends Component {
-
     render() {
         return (
             <div className="container body-container">
                 <Route exact path="/" component={Index} />
-                <Route path="/produtos" component={ProdutoList} />
-                <Route exact path="/produto/criar" component={ModelForm} />
-                <Route exact path="/produto/editar/:id" render={({ match }) => <ModelForm id={match.params.id} />} />
+                <Route exact path="/pedido" component={PedidoList} />
+                <Route exact path="/produto" component={ProdutoList} />
+                <Route exact path="/cliente" component={ClienteList} />
+
+                <Route exact path="/produto/criar" component={ProdutoForm} />
+                <Route exact path="/pedido/criar" component={PedidoForm} />
+                <Route exact path="/cliente/criar" component={ClienteForm} />
+
+                <Route exact path="/cliente/editar/:id" render={({ match }) => <ClienteForm id={match.params.id} />} />
+                <Route exact path="/produto/editar/:id" render={({ match }) => <ProdutoForm id={match.params.id} />} />
             </div>
         )
     }
