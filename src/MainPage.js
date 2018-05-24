@@ -20,6 +20,7 @@ export default class MainPage extends Component {
                 <Route exact path="/pedido/criar" component={PedidoForm} />
                 <Route exact path="/cliente/criar" component={ClienteForm} />
 
+                <Route exact path="/pedido/ver/:id" render={({ match }) => <PedidoForm id={match.params.id} />} />
                 <Route exact path="/cliente/editar/:id" render={({ match }) => <ClienteForm id={match.params.id} />} />
                 <Route exact path="/produto/editar/:id" render={({ match }) => <ProdutoForm id={match.params.id} />} />
             </div>

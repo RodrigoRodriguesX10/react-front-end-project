@@ -1,53 +1,60 @@
-var baseUri = "";
-var apiUrl = "";
 
 export default class Crud {
-    static _urlApi;
-    static set(urlApi){
-        Crud._urlApi = urlApi;
+    constructor(name){
+        this._apiUrl = "http://localhost:8000/api";
+        this._baseUri = this._apiUrl + "/" + name;
+        this.post = this.post.bind(this);
+        this.get = this.get.bind(this);
+        this.put = this.put.bind(this);
+        this.post = this.post.bind(this);
     }
 
-    static get(id) {
-        return fetch(baseUri + (id ? "/" + id : ""), {
+    get(id) {
+        return fetch(this._baseUri + (id ? "/" + id : ""), {
             method: 'GET',
+            mode: "cors",
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                "Origin": "localhost"
             },
         }).then(function(res){
             return res.json();
         });
     }
-    static post(model) {
-        return fetch(baseUri, {
+    post(model) {
+        return fetch(this._baseUri, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(model),
-        }).then(function(res){
-            return res.json();
-        });;
-    }
-    static put(model) {
-        return fetch(baseUri, {
-            method: 'PUT',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
+                "Origin": "localhost"
             },
             body: JSON.stringify(model),
         }).then(function(res){
             return res.json();
         });
     }
-    static delete(id) {
-        return fetch(baseUri+ (id ? "/" + id : ""), {
+    put(model) {
+        return fetch(this._baseUri, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                "Origin": "localhost"
+            },
+            body: JSON.stringify(model),
+        }).then(function(res){
+            return res.json();
+        });
+    }
+    delete(id) {
+        return fetch(this._baseUri + (id ? "/" + id : ""), {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                "Origin": "localhost"
             },
         }).then(function(res){
             return res.json();
